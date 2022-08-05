@@ -1,0 +1,62 @@
+.form-search{
+    display: flex;
+    margin: 20px auto;
+    width: 80%;
+}
+
+.title{
+    font-size: 30px;
+    font-weight: 400;
+    text-align: center;
+    margin: 30px auto;
+}
+.btn{
+    width: 200px;
+    background-color: gainsboro;
+    border-radius: 5px;
+    text-align: center;
+    margin: 10px auto;
+    padding: 10px;
+    font-size: 20px;
+}
+.btn-search{
+    width: 30%;
+    background-color: gainsboro;
+    border-radius: 0 5px   5px 0;
+    text-align: center;
+    margin: 0 auto;
+    line-height: 30px;
+    font-size: 20px;
+}
+.cursor-pointer{
+    cursor: pointer;
+}
+a{
+    text-decoration: none;
+}
+input{
+    outline: none;
+    padding-left: 10px;
+    line-height: 30px;
+    width: 70%;
+}
+.row{
+    display: flex;
+}
+.table-title, .table-data{
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 5px;
+    font-size: 14px;
+    text-align: center;
+    width: 20%;
+}
+.table{
+    padding: 20px 50px;
+}
+.choose-store{
+    width: 800px;
+    margin: 0 auto;
+    border: 1px solid black;
+    padding: 10px;
+}

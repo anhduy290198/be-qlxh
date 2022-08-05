@@ -1,0 +1,27 @@
+.home{
+    width: 500px;
+    margin: 0 auto;
+    border: 1px solid black;
+    padding: 10px;
+}
+.title{
+    font-size: 30px;
+    font-weight: 400;
+    text-align: center;
+    margin: 20px;
+}
+.btn{
+    width: 200px;
+    background-color: gainsboro;
+    border-radius: 5px;
+    text-align: center;
+    margin: 10px auto;
+    padding: 10px;
+    font-size: 20px;
+}
+.cursor-pointer{
+    cursor: pointer;
+}
+a{
+    text-decoration: none;
+}
