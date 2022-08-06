@@ -34,18 +34,13 @@ public class DaiLiDao extends Dao {
         return dsdl;
     }
 
-    public void tao(DaiLi daiLi) {
+    public void tao(DaiLi daiLi) throws SQLException {
         String sql = "insert into daili(tenDL,sdt,diaChi)  "
                 + "values(?,?,?)";
-        PreparedStatement ps;
-        try {
-            ps = connection.prepareStatement(sql);
-            ps.setString(1, daiLi.getTenDL());
-            ps.setString(2, daiLi.getSdt());
-            ps.setString(3, daiLi.getDiaChi());
-            ps.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        PreparedStatement ps = connection.prepareStatement(sql);
+        ps.setString(1, daiLi.getTenDL());
+        ps.setString(2, daiLi.getSdt());
+        ps.setString(3, daiLi.getDiaChi());
+        ps.executeUpdate();
     }
 }

@@ -27,7 +27,7 @@ public class StoreController {
     }
 
     @PostMapping
-    public void tao(@RequestBody DaiLi daiLi) {
+    public void tao(@RequestBody DaiLi daiLi) throws SQLException {
         daiLiDao.tao(daiLi);
         System.out.println("Tao dai ly thanh cong!");
     }
