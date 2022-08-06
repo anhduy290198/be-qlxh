@@ -1,15 +1,13 @@
 package vn.com.duy.exportmanagement.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class DaiLy {
+@ToString
+public class DaiLi {
 
     private Integer maDL;
     private String tenDL;

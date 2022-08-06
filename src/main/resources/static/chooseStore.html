@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/choose-store.css">
+    <title>Chọn Đại Lí</title>
 </head>
 <body>
 
@@ -10,26 +11,10 @@
     <div class="choose-store">
         <div class="title">Chọn đại lí</div>
         <div class="form-search">
-            <input type="text" placeholder="nhập từ khóa">
-            <div class="btn-search cursor-pointer">Tìm kiếm</div>
+            <input id="text-search" type="text" placeholder="nhập từ khóa">
+            <div class="btn-search cursor-pointer" id="search-store-btn">Tìm kiếm</div>
         </div>
-        <div class="table">
-            <div class="row">
-                <div class="table-title">Mã đại lí</div>
-                <div class="table-title">Tên đại lí</div>
-                <div class="table-title">Địa chỉ</div>
-                <div class="table-title">Số điện thoại</div>
-                <div class="table-title"></div>
-            </div>
-            <div class="row">
-                <div class="table-data">01</div>
-                <div class="table-data">Đại lí Yên Lãng</div>
-                <div class="table-data">Hà Nội</div>
-                <div class="table-data">0766555689</div>
-                <div class="table-data cursor-pointer" style="color: blue;">
-                    <a href="chooseProduct.html">Chọn</a>
-                </div>
-            </div>
+        <div id="daiLiTable" class="table">
         </div>
         <div class="btn cursor-pointer">
             <a href="index.html">
@@ -38,6 +23,48 @@
         </div>
     </div>
 </div>
-
 </body>
+<script>
+    const button = document.getElementById('search-store-btn');
+    button.addEventListener('click', async _ => {
+        fetch('/stores/' + document.getElementById("text-search").value).then(res => {
+            res.json().then(
+                data => {
+                    genTable(data)
+                }
+            )
+        });
+    });
+    const layDS = () => {
+        fetch('/stores/').then(res => {
+            res.json().then(
+                data => {
+                    genTable(data)
+                }
+            )
+        });
+    }
+    layDS()
+
+    function genTable(data) {
+        console.log(data);
+        let daiLiTableHtml = "<div class=\"row\">" +
+            "                <div class=\"table-title\">Mã đại lí</div>" +
+            "                <div class=\"table-title\">Tên đại lí</div>" +
+            "                <div class=\"table-title\">Địa chỉ</div>" +
+            "                <div class=\"table-title\">Số điện thoại</div>" +
+            "                <div class=\"table-title\"></div>" +
+            "            </div>";
+        data.forEach(item => {
+            daiLiTableHtml += "<div class=\"row\"><div class=\"table-data\">" + item.maDL + "</div>";
+            daiLiTableHtml += "<div class=\"table-data\">" + item.tenDL + "</div>";
+            daiLiTableHtml += "<div class=\"table-data\">" + item.sdt + "</div>";
+            daiLiTableHtml += "<div class=\"table-data\">" + item.diaChi + "</div>";
+            daiLiTableHtml += "<div class=\"table-data cursor-pointer\" style=\"color: blue;\">\n" +
+                "                    <a href=\"chooseProduct.html\">Chọn</a>\n" +
+                "                </div></div>"
+        });
+        document.getElementById('daiLiTable').innerHTML = daiLiTableHtml;
+    }
+</script>
 </html>

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/create-store.css">
+    <title>Tạo Đại Lí</title>
 </head>
 <body>
 
@@ -28,20 +29,23 @@
                 Trở lại
             </a>
         </div>
-        <div id="create-store-btn" class="btn cursor-pointer">Tạo đại lí</div>
+        <div id="create-store-btn" class="btn cursor-pointer">
+            <a href="index.html">Tạo đại lý</a>
+        </div>
     </div>
 </div>
 </body>
 <script>
+
     const button = document.getElementById('create-store-btn');
-    const tenDL = "Duy Loz";
-    const sdt = "Duy Loz";
-    const diaChi = "Duy Loz";
-    const data = {tenDL, sdt, diaChi};
 
     button.addEventListener('click', async _ => {
+        const tenDL = document.getElementById("name").value;
+        const sdt = document.getElementById('phone').value;
+        const diaChi = document.getElementById('address').value;
+        const data = {tenDL, sdt, diaChi};
         try {
-            const response = await fetch('/store', {
+            const response = await fetch('/stores', {
                 method: 'post',
                 headers: {
                     'Content-Type': 'application/json'

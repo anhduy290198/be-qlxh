@@ -1,19 +1,16 @@
-package vn.com.duy.exportmanagement.utils;
-
-import lombok.experimental.UtilityClass;
+package vn.com.duy.exportmanagement.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-@UtilityClass
-public class DatabaseUtils {
+public class Dao {
     private static final String URL = "jdbc:mysql://localhost:3306/quanlybanhang?autoReconnect=true&useSSL=false";
     private static final String USERNAME = "root";
     private static final String PASSWORD = "1234";
-    private static Connection connection;
+    protected static Connection connection;
 
-    public static Connection getConnection() {
+    public Dao() {
         if (connection == null) {
             try {
                 connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
@@ -21,6 +18,5 @@ public class DatabaseUtils {
                 throw new RuntimeException(e);
             }
         }
-        return connection;
     }
 }
