@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/create-store.css">
+</head>
+<body>
+
+<div class="create">
+    <div class="title">
+        Tạo đại lí
+    </div>
+    <div class="form-create">
+        <label for="name">Tên đại lí:</label>
+        <input id="name" type="text" placeholder="Nhập tên">
+    </div>
+    <div class="form-create">
+        <label for="phone">Số điện thoại</label>
+        <input id="phone" type="text" placeholder="Nhập số điện thoại">
+    </div>
+    <div class="form-create">
+        <label for="address">Địa chỉ đại lí:</label>
+        <input id="address" type="text" placeholder="Nhập địa chỉ">
+    </div>
+    <div class="form-create">
+        <div class="btn cursor-pointer">
+            <a href="index.html">
+                Trở lại
+            </a>
+        </div>
+        <div id="create-store-btn" class="btn cursor-pointer">Tạo đại lí</div>
+    </div>
+</div>
+</body>
+<script>
+    const button = document.getElementById('create-store-btn');
+    const tenDL = "Duy Loz";
+    const sdt = "Duy Loz";
+    const diaChi = "Duy Loz";
+    const data = {tenDL, sdt, diaChi};
+
+    button.addEventListener('click', async _ => {
+        try {
+            const response = await fetch('/store', {
+                method: 'post',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+            console.log('Completed!', response);
+        } catch (err) {
+            console.error(`Error: ${err}`);
+        }
+    });
+</script>
+</html>
