@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/stores")
-public class StoreController {
+public class DailiController {
     private final DaiLiDao daiLiDao = new DaiLiDao();
 
     @GetMapping
