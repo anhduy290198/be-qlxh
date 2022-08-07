@@ -30,7 +30,10 @@
             </a>
         </div>
         <div id="create-store-btn" class="btn cursor-pointer">
-            <a href="index.html">Tạo đại lý</a>
+            Tạo đại lý
+        </div>
+        <div  id="submit-create">
+            <a href="index.html"></a>
         </div>
     </div>
 </div>
@@ -44,18 +47,35 @@
         const sdt = document.getElementById('phone').value;
         const diaChi = document.getElementById('address').value;
         const data = {tenDL, sdt, diaChi};
-        try {
-            const response = await fetch('/stores', {
-                method: 'post',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            });
-            console.log('Completed!', response);
-        } catch (err) {
-            console.error(`Error: ${err}`);
+        if(!checkValidate(tenDL, sdt, diaChi)){
+            alert('Hãy nhập đầy đủ thông tin!');
+            return false;
+        }else{
+            try {
+                await fetch('/stores', {
+                    method: 'post',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                }).then(res =>{
+                    console.log(123)
+                    document.getElementById('submit-create').onclick;
+
+                });
+
+            } catch (err) {
+                console.error(`Error: ${err}`);
+            }
         }
+
     });
+    function checkValidate(ten, sdt, diaChi) {
+        if(ten == '' || sdt == '' || diaChi == ''){
+            return false;
+        }else{
+            return true;
+        }
+    }
 </script>
 </html>

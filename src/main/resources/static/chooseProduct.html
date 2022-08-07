@@ -33,7 +33,7 @@
                     <input style="line-height: 20px;" type="number" placeholder="nhập số lượng">
                 </div>
                 <div class="table-data cursor-pointer" style="color: blue;">
-                    <a href="">Chọn</a>
+                    <input style="line-height: 20px" type="number" placeholder="Nhập giá tiền">
                 </div>
             </div>
         </div>
@@ -43,14 +43,18 @@
                     Trở lại
                 </a>
             </div>
-            <div class="btn cursor-pointer">
-                <a href="chooseStore.html">
-                    Xuất kho
-                </a>
+            <div id="export" class="btn cursor-pointer">
+                Xuất Kho
             </div>
         </div>
     </div>
 </div>
 
 </body>
+<script>
+    let button = document.getElementById('export');
+    button.addEventListener('click', ()=>{
+        alert('Xuất hàng thành công');
+    })
+</script>
 </html>
